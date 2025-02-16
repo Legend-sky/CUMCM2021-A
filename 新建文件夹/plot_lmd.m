@@ -1,0 +1,24 @@
+clc;clear;
+df=xlsread('灵敏度.xlsx');
+x=df(:,1);
+y1=df(:,2);
+y2=df(:,4);
+[AX,H1,H2] = plotyy(x,y1,x,y2,'plot');
+set(AX(1),'XColor','k','YColor','b');
+set(AX(2),'XColor','k','YColor','r');
+HH1=get(AX(1),'Ylabel');
+set(HH1,'String','反射面板有效总面积');
+set(HH1,'color','b');
+HH2=get(AX(2),'Ylabel');
+set(HH2,'String','馈源舱接收比');
+set(HH2,'color','r');
+set(H1,'LineStyle','-','Marker','p');
+set(H1,'color','b');
+set(H2,'LineStyle','-','Marker','h');
+set(H2,'color','r');
+text(305,67450.43,'(310,70025.8)');
+text(305,77000,'(310,0.9869)');
+
+legend([H1,H2],{'反射面板有效总面积';'馈源舱接收比'});
+xlabel('照明区域口径/m');
+title('反射面板有效面积、馈源舱接收比与照明区域口径关系');
